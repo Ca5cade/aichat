@@ -86,7 +86,7 @@ def post_chat_message(chat_request: ChatRequest):
 
         # Get or create chat session
         if session_id not in chat_sessions:
-            model = genai.GenerativeModel('gemini-pro-latest')
+            model = genai.GenerativeModel('gemini-flash-latest')
             chat_sessions[session_id] = model.start_chat(history=[])
 
         chat_session = chat_sessions[session_id]

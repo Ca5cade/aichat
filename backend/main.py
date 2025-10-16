@@ -18,6 +18,7 @@ def read_root():
 # CORS configuration
 origins = [
     "http://localhost:3000",  # Allow frontend origin
+    "https://roleplayforanne.onrender.com",
 ]
 
 app.add_middleware(

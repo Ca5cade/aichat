@@ -28,7 +28,7 @@ export function ChatInterface({ chat, onUpdateChat, onToggleSidebar, isSidebarOp
     sessionIdRef.current = chat.id;
     const fetchHistory = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/api/chat?sessionId=${sessionIdRef.current}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chat?sessionId=${sessionIdRef.current}`);
         if (!response.ok) {
           throw new Error("Failed to fetch chat history");
         }
@@ -69,7 +69,7 @@ export function ChatInterface({ chat, onUpdateChat, onToggleSidebar, isSidebarOp
     setIsLoading(true)
 
     try {
-      const response = await fetch("http://localhost:8000/api/chat", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: updatedMessages, sessionId: sessionIdRef.current }),

@@ -10,6 +10,11 @@ import google.generativeai as genai
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the AI Roleplay Chat API"}
+
+
 # CORS configuration
 origins = [
     "http://localhost:3000",  # Allow frontend origin
